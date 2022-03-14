@@ -237,22 +237,22 @@ return [
         ],
 
         // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
+//        [
+//            'type' => 'sidebar-menu-search',
+//            'text' => 'search',
+//        ],
+//        [
+//            'text' => 'blog',
+//            'url'  => 'admin/blog',
+//            'can'  => 'manage-blog',
+//        ],
+//        [
+//            'text'        => 'pages',
+//            'url'         => 'admin/pages',
+//            'icon'        => 'far fa-fw fa-file',
+//            'label'       => 4,
+//            'label_color' => 'success',
+//        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -302,22 +302,32 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
-        ],
+//        ['header' => 'labels'],
+//        [
+//            'text'       => 'important',
+//            'icon_color' => 'maroon',
+//            'url'        => '#',
+//        ],
+//        [
+//            'text'       => 'warning',
+//            'icon_color' => 'yellow',
+//            'url'        => '#',
+//        ],
+//        [
+//            'text'       => 'information',
+//            'icon_color' => 'cyan',
+//            'url'        => '#',
+//        ],
+
+        ['header' => 'SysFacturacion', 'can' => [ 'generador' ],],
+
+            //sysfacturacion
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'membershipgen', 'text' => 'Membershipgen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'modulegen', 'text' => 'Modulegen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'user_modulegen', 'text' => 'UserModulegen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'membership_modulegen', 'text' => 'MembershipModulegen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'companygen', 'text' => 'Companygen',],
+
     ],
 
     /*
