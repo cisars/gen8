@@ -80,17 +80,20 @@ class {{$NOMBRE}} extends Model
 @endif
 @endforeach
 
-@foreach ($gen->tabla['relaciones'] as $dataRel)
-@if('belongsTo' == $dataRel['eloquent'])
-    public function {{$dataRel['funcion']}}()
+@foreach ($gen->tabla['columnas'] as $dataCol)
+@if ($dataCol['cardinalidad'] == 'fk' || $dataCol['cardinalidad'] == 'pkfk')
+    public function {{$dataCol['fk']}}()
     {
-        return $this->belongsTo({{$dataRel['related']}}, '{{$dataRel['foreignkey']}}');
+        return $this->belongsTo({{$dataCol['FK']}}::class, '{{$dataCol['fk']}}_id');
     }
 @endif
+@endforeach
+
+@foreach ($gen->tabla['relaciones'] as $dataRel)
 @if('hasMany' == $dataRel['eloquent'])
     public function {{$dataRel['funcion']}}()
     {
-        return $this->hasMany({{$dataRel['related']}}, '{{$dataRel['foreignkey']}}');
+        return $this->hasMany({{$dataRel['related']}}, '{{$nombre}}_id');
     }
 @endif
 @if('belongsToMany' == $dataRel['eloquent'])

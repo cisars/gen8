@@ -2,29 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use stdClass;
 
-class CuotaGen extends Controller
+class InstallmentGen extends Controller
 {
-    public function index()
+
+    public function index($bandera = false)
     {
 
         $gen = new stdClass();
         $genisa = new MakeTemplateController();
         $tabla      =
             [
-                'ZNOMBRESZ'   => 'Cuotas' ,
-                'ZNOMBREZ'    => 'Cuota' ,
-                'ZnombresZ'   => 'cuotas' ,
-                'ZnombreZ'    => 'cuota' ,
+                'ZNOMBRESZ'   => 'Installments' ,
+                'ZNOMBREZ'    => 'Installment' ,
+                'ZnombresZ'   => 'installments' ,
+                'ZnombreZ'    => 'installment' ,
                 'columnas'  =>
                     [
                         $genisa->parametros('id',               'hidden',               'int', '' ,  'notnull', 'pk', 'autoincrement','','','',''),
                         $genisa->parametros('membership_id',     'Membership',            'int',  '',   'notnull','fk','',
                             'Membership','memberships','membership','id',''),
                         $genisa->parametros('payment_method',    'Metodo de Pago',       'enum', '', 'notnull','','','','','','','', 'payment_methods', 'InstallmentPaymentMethod'),
-                        $genisa->parametros('state',            'Estado',                'enum', '', 'notnull','','','','','','','', 'states', 'InstallmentStates'),
-                        $genisa->parametros('expiration',       'Vencimiento',           'enum', '', 'notnull','','','','','','','', 'expirations', 'InstallmentExpiration'),
+                        $genisa->parametros('state',            'Estado',                'enum', '', 'notnull','','','','','','','', 'states', 'InstallmentState'),
+                        $genisa->parametros('expiration',       'Vencimiento',           'date',     '20',  'null','','','','','','',''),
 
                     ],
                 'relaciones'  =>
@@ -33,8 +35,10 @@ class CuotaGen extends Controller
                             'membership', 'belongsTo', 'Membership::class', 'membership_id','', ''),
 
                     ],
+
                 'enumCol'  =>
                     [
+
                         $genisa->enumCol('state',     'ESTADO_ACTIVO',      'Activo'),
                         $genisa->enumCol('state',     'ESTADO_INACTIVO',    'Inactivo'),
                         $genisa->enumCol('state',     'ESTADO_ESPERA',     'Espera'),
@@ -47,23 +51,30 @@ class CuotaGen extends Controller
                         $genisa->enumCol('payment_method',  'CHEQUE',      'Cheque' ),
 
                     ],
+
                 'constantes'  =>
                     [
 
-                        $genisa->constantes('personeria',     'PERSONERIA_SOCIEDADES',    	's' , 'personerias',    'Personeria', 	'Sociedades'),
-                        $genisa->constantes('personeria',     'PERSONERIA_CIVILES',    		'c' , 'personerias',    'Personeria', 		'Civiles'	),
-                        $genisa->constantes('personeria',     'PERSONERIA_SIMPLES',    	'i' , 'personerias',    'Personeria ', 	'Simples '	),
-                        $genisa->constantes('personeria',     'PERSONERIA_FUNDACIONES',    	'f' , 'personerias',    'Personeria', 	'Fundaciones'),
-                        $genisa->constantes('personeria',     'PERSONERIA_ENTIDADES',    	'e' , 'personerias',    'Personeria', 	'Entidades'	),
-                        $genisa->constantes('personeria',     'PERSONERIA_MUTUALES',    	'm' , 'personerias',    'Personeria', 	'Mutuales'	),
-                        $genisa->constantes('personeria',     'PERSONERIA_COOPERATIVAS',    'o' , 'personerias',    'Personeria', 'Cooperativas'),
-                        $genisa->constantes('personeria',     'PERSONERIA_CONSORCIOS',    	'n' , 'personerias',    'Personeria', 	'Consorcios'),
+                        $genisa->constantes('state',     'ESTADO_ACTIVO',    	    '1' , 'states',    'Activo', 	    'Activo'),
+                        $genisa->constantes('state',     'ESTADO_INACTIVO',       '2' , 'states',    'Inactivo',    'Inactivo'	),
+                        $genisa->constantes('state',     'ESTADO_ESPERA',    	    '3' , 'states',    'Espera', 	    'Espera'	),
+                        $genisa->constantes('state',     'ESTADO_CANCELADO',    	'4' , 'states',    'Cancelado', 	'Cancelado'),
+                        $genisa->constantes('state',     'ESTADO_PENDIENTE',    	'5' , 'states',    'Pendiente', 	'Pendiente'	),
+
+                        $genisa->constantes('payment_method',  'DEBITO',    	  '1' , 'payment_methods',    'Debito', 	    'Debito'),
+                        $genisa->constantes('payment_method',  'CREDITO',    	  '2' , 'payment_methods',    'Credito', 		'Credito'),
+                        $genisa->constantes('payment_method',  'EFECTIVO',       '3' , 'payment_methods',    'Efectivo', 	'Efectivo'),
+                        $genisa->constantes('payment_method',  'CHEQUE',         '4' , 'payment_methods',    'Cheque', 	    'Cheque'),
 
                     ]
 
             ];
+
         $gen->dat = '001';
         $gen->tabla = $tabla;
+        if (isset($bandera)){
+        //    return  $tabla;
+        }
         return view('_template.matrix', compact('gen')); // Lista con BelongsTo
     }
 }

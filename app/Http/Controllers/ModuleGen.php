@@ -19,17 +19,18 @@ class ModuleGen extends Controller
                 'ZnombreZ'    => 'module' ,
                 'columnas'  =>
                     [
-                        $genisa->parametros('id',               'hidden',               'smallint', '' ,  'notnull', 'pk', 'autoincrement','','','',''),
-                        $genisa->parametros('name',             'Nombre',              'varchar',  '255',   'notnull','','','','','','',''),
+                        $genisa->parametros('id',               'hidden',               'int', '' ,  'notnull', 'pk', 'autoincrement','','','',''),
+                        $genisa->parametros('name',             'Nombre',              'text',  '20',   'notnull','','','','','','',''),
+                        $genisa->parametros('description',     'Descripcion',          'text',  '150',   'notnull','','','','','','',''),
                         $genisa->parametros('price',            'Precio',              'int',  '',   'notnull','','','','','','',''),
 
                     ],
                 'relaciones'  =>
                     [
                         $genisa->foreign('module_id','id','memberships_modules','CASCADE','CASCADE',
-                            'module', 'belongsToMany', 'MembershipModule::class', 'module_id','membership_id', ''),
+                            'module', 'belongsToMany', 'MembershipModule::class', 'module_id','membership_id', 'MembershipModule'),
                         $genisa->foreign('module_id','id','users_modules','CASCADE','CASCADE',
-                            'module', 'belongsToMany', 'UserModule::class', 'module_id','user_id', ''),
+                            'module', 'belongsToMany', 'UserModule::class', 'module_id','user_id', 'UserModule'),
 
                     ],
                 'constantes'  =>

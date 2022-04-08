@@ -151,6 +151,19 @@ class MakeTemplateController extends Controller
         ];
     }
 
+    public function enumCol(
+        $nombre = null,
+        $key = null,
+        $name = null
+    )
+    {
+        return [
+            'nombre' => $nombre,
+            'key' => $key,
+            'name' => $name
+        ];
+    }
+
     public function constantes(
         $nombre = null,
         $clave = null,
@@ -182,7 +195,9 @@ class MakeTemplateController extends Controller
         $fks = null,
         $fk = null,
         $orderby = null,
-        $selectdesc = 'descripcion'
+        $selectdesc = 'descripcion',
+        $nombresEnum = 'nombresEnum',
+        $claseEnum = 'claseEnum'
 
     )
     {
@@ -205,7 +220,9 @@ class MakeTemplateController extends Controller
             'fks' => $fks,
             'fk' => $fk,
             'orderby' => $orderby,
-            'selectdesc' => $selectdesc
+            'selectdesc' => $selectdesc,
+            'nombresEnum' => $nombresEnum,
+            'claseEnum' => $claseEnum
 
         ];
     }

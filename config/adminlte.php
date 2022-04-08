@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>GEN8</b>',
+    'logo_img' => 'vendor/adminlte/dist/img/GEN8Logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -66,7 +66,8 @@ return [
 
     'usermenu_enabled' => true,
     'usermenu_header' => false,
-    'usermenu_header_class' => 'bg-primary',
+//    'usermenu_header_class' => 'bg-primary',
+    'usermenu_header_class' => 'bg-maroon',
     'usermenu_image' => false,
     'usermenu_desc' => false,
     'usermenu_profile_url' => false,
@@ -102,12 +103,14 @@ return [
     |
     */
 
-    'classes_auth_card' => 'card-outline card-primary',
+//    'classes_auth_card' => 'card-outline card-primary',
+    'classes_auth_card' => 'card-outline card-maroon',
     'classes_auth_header' => '',
     'classes_auth_body' => '',
     'classes_auth_footer' => '',
     'classes_auth_icon' => '',
-    'classes_auth_btn' => 'btn-flat btn-primary',
+//    'classes_auth_btn' => 'btn-flat btn-primary',
+    'classes_auth_btn' => 'btn-flat btn-maroon',
 
     /*
     |--------------------------------------------------------------------------
@@ -127,7 +130,8 @@ return [
     'classes_content_wrapper' => '',
     'classes_content_header' => '',
     'classes_content' => '',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-gray elevation-4',
+//    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
@@ -322,11 +326,28 @@ return [
         ['header' => 'SysFacturacion', 'can' => [ 'generador' ],],
 
             //sysfacturacion
-            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'membershipgen', 'text' => 'Membershipgen',],
-            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'modulegen', 'text' => 'Modulegen',],
-            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'user_modulegen', 'text' => 'UserModulegen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'membershipgen',       'text' => 'Membershipgen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'modulegen',           'text' => 'Modulegen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'user_modulegen',      'text' => 'UserModulegen',],
             ['icon_color' => 'green', 'can' => 'generador', 'url' => 'membership_modulegen', 'text' => 'MembershipModulegen',],
-            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'companygen', 'text' => 'Companygen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'companygen',          'text' => 'Companygen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'installmentgen',      'text' => 'Installment',],
+            ['icon_color' => 'maroon', 'can' => 'generador', 'url' => 'installmentgencd',   'text' => 'InstallmentCD',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'detailinstallmentgen', 'text' => 'DetailInstallment',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'notegen',                 'text' => 'Nota',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'notedetailgen',       'text' => 'Nota Detalle',],
+
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/taxgen',                 'text' => 'Tax Gen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/categorygen',               'text' => 'CategoryGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/measuregen',                'text' => 'MeasureGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/suppliergen',                  'text' => 'SupplierGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/clientgen',                   'text' => 'ClientGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/salegen',               'text' => 'SaleGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/productgen',                 'text' => 'ProductGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/producttaxgen',                   'text' => 'ProductTaxGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/saledetailgen',                   'text' => 'SaleDetailGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/purchasegen',                  'text' => 'PurchaseGen',],
+            ['icon_color' => 'green', 'can' => 'generador', 'url' => '/movementgen',                   'text' => 'MovementGen',],
 
     ],
 

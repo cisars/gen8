@@ -24,7 +24,8 @@ class CompanyGen extends Controller
                         $genisa->parametros('document',         'Documento',            'varchar',  '20',   'notnull','','','','','','',''),
                         $genisa->parametros('address',          'Direccion',            'varchar',  '80',   'notnull','','','','','','',''),
                         $genisa->parametros('city',             'Ciudad',               'varchar',  '80',   'notnull','','','','','','',''),
-                        $genisa->parametros('document_type',    'Tipo de Documeno',     'char',     '1',    'notnull','cons','','','documents_types','','',''),
+                        $genisa->parametros('document_type',    'Tipo de Documeno',     'enum',     '',     'notnull','','','','','','','',
+                        'documents_types','CompanyDocumentType'),
                         $genisa->parametros('phone',            'Teléfono',             'varchar',  '20',   'notnull','','','','','','',''),
                         $genisa->parametros('email',            'Email',                'varchar',  '80',   'notnull','','','','','','',''),
 
@@ -35,12 +36,19 @@ class CompanyGen extends Controller
 
 
                     ],
+                'enumCol'  =>
+                    [
+                        $genisa->enumCol('document_type',  'CI',    	      'CI'  ),
+                        $genisa->enumCol('document_type',  'RUC',    		  'RUC'  ),
+                        $genisa->enumCol('document_type',  'PASAPORTE',     'Pasaporte'  ),
+
+                    ],
                 'constantes'  =>
                     [
 
                         $genisa->constantes('document_type',  'CI',    	      'C' , 'documents_types',    'CI', 	    'CI'),
                         $genisa->constantes('document_type',  'RUC',    		  'R' , 'documents_types',    'RUC', 		'RUC'	),
-                        $genisa->constantes('document_type',  'PASAPORTE ',     'P' , 'documents_types',    'Pasaporte ', 	'Pasaporte'	),
+                        $genisa->constantes('document_type',  'PASAPORTE',     'P' , 'documents_types',    'Pasaporte ', 	'Pasaporte'	),
 
                     ]
 

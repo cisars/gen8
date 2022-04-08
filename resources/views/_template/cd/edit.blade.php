@@ -143,7 +143,7 @@
                                         </div> {{-- fin form-group col--}}
                                             {{'{'}}{{'{'}}--SELECT FK {{ $dataCol['visibilidad'] }} ------------------------------------ --{{'}'}}{{'}'}}
 
-@elseif ( ($dataCol['tipo'] == 'date' || $dataCol['tipo'] == 'timestamp' || $dataCol['tipo'] == 'datetime')  && ($dataCol['cardinalidad'] != 'fk' && $dataCol['cardinalidad'] != 'cons'  && $dataCol['cardinalidad'] != 'pkfk'   ))
+@elseif ( ($dataCol['tipo'] == 'date' || $dataCol['tipo'] == 'timestamp')  && ($dataCol['cardinalidad'] != 'fk' && $dataCol['cardinalidad'] != 'cons'  && $dataCol['cardinalidad'] != 'pkfk'   ))
                                         <div class="form-group col">
                                             {{'{'}}{{'{'}}--DATE TIMESTAMP {{ $dataCol['visibilidad'] }} --{{'}'}}{{'}'}}
 
@@ -197,26 +197,6 @@
                                         </div> {{-- fin form-group col--}}
                                         {{'{'}}{{'{'}}--INPUT NUMERIC {{ $dataCol['visibilidad'] }} ------------------------------------ --{{'}'}}{{'}'}}
 
-@elseif (($dataCol['tipo'] == 'decimal')  && ($dataCol['cardinalidad'] != 'fk' && $dataCol['cardinalidad'] != 'cons'  && $dataCol['cardinalidad'] != 'pkfk'  ))
-                                        <div class="form-group col">
-                                            {{'{'}}{{'{'}}--INPUT NUMERIC {{ $dataCol['visibilidad'] }} --{{'}'}}{{'}'}}
-                                            {{'{'}}!! Form::label('{{ $dataCol['nombre'] }}', '{{ $dataCol['visibilidad'] }}') !!{{'}'}}
-                                            {{'{'}}!! Form::text(
-                                            '{{ $dataCol['nombre'] }}',
-                                            old('{{ $dataCol['nombre'] }}') ,
-                                            [
-                                            'maxlength'     => '{{ $dataCol['longitud'] }}',
-                                            'type'          => 'numeric',
-                                            'step'          => ".01",
-                                            'class'         => 'form-control',
-                                            'placeholder'   => '{{ $dataCol['visibilidad'] }}'
-                                            ]) !!{{'}'}}
-                                            {{'@'}}error("{{ $dataCol['nombre'] }}")
-                                            <span class="text text-danger">{{'{'}}{{'{'}} $message {{'}'}}{{'}'}}</span>
-                                            {{'@'}}enderror
-                                        </div> {{-- fin form-group col--}}
-                                        {{'{'}}{{'{'}}--INPUT NUMERIC {{ $dataCol['visibilidad'] }} ------------------------------------ --{{'}'}}{{'}'}}
-
 @elseif (($dataCol['tipo'] == 'char' || $dataCol['tipo'] == 'varchar' || $dataCol['tipo'] == 'text' )  && ($dataCol['cardinalidad'] != 'fk' && $dataCol['cardinalidad'] != 'cons'  && $dataCol['cardinalidad'] != 'pkfk' ))
                                         <div class="form-group col">
                                             {{'{'}}{{'{'}}--INPUT TEXT {{ $dataCol['visibilidad'] }} --{{'}'}}{{'}'}}
@@ -249,22 +229,11 @@
                                                     {{'@'}}enderror
                                                 </div> {{-- fin form-group col--}}
 
-@elseif (($dataCol['tipo'] == 'boolean'   )  )
-                                                <div class="form-group col">
-                                                    {{'{'}}{{'{'}}--INPUT Radio solo BOOLEAN {{ $dataCol['visibilidad'] }} --{{'}'}}{{'}'}}
-                                                    {{'{'}}!! Form::label('{{ $dataCol['nombre'] }}', '{{ $dataCol['visibilidad'] }}') !!{{'}'}}
-                                                    {{'{'}}!! Form::radio('{{ $dataCol['nombre'] }}', 0, old('{{ $dataCol['nombre'] }}') , [ 'id' => '{{ $dataCol['nombre'] }}' ]) !!{{'}'}}
-                                                    No
-                                                    {{'{'}}!! Form::radio('{{ $dataCol['nombre'] }}', 1, old('{{ $dataCol['nombre'] }}') , [ 'id' => '{{ $dataCol['nombre'] }}' ]) !!{{'}'}}
-                                                    Si
-                                                    {{'@'}}error("{{ $dataCol['nombre'] }}")
-                                                    <span class="text text-danger">{{'{'}}{{'{'}} $message {{'}'}}{{'}'}}</span>
-                                                    {{'@'}}enderror
-                                                </div> {{-- fin form-group col--}}
 @endif
 @endforeach
 
                                         {{'{'}}{{'{'}}--</div>--{{'}'}}{{'}'}}{{-- fin form-row--}}
+
 
                                     <div class="card-footer  ">
                                         <button

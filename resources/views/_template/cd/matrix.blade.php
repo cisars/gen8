@@ -53,14 +53,14 @@
                             <input name="minuscula" type="hidden" value="{{$gen->tabla['ZnombreZ']}}">
                             @csrf
                             @method('POST')
-                            <textarea name="codigocontroller" style="display: none"> @include('_template.controller',['gen'=>$gen]) </textarea>
-                            <textarea name="codigomodel" style="display: none"> @include('_template.model',['gen'=>$gen]) </textarea>
-                            <textarea name="codigoindex" style="display: none"> @include('_template.index',['gen'=>$gen]) </textarea>
-                            <textarea name="codigoedit" style="display: none"> @include('_template.edit',['gen'=>$gen]) </textarea>
-                            <textarea name="codigofake" style="display: none"> @include('_template.fake',['gen'=>$gen]) </textarea>
-                            <textarea name="codigorequeststore" style="display: none"> @include('_template.store',['gen'=>$gen]) </textarea>
-                            <textarea name="codigorequestupdate" style="display: none"> @include('_template.update',['gen'=>$gen]) </textarea>
-                            <textarea name="codigomigration" style="display: none"> @include('_template.migration',['gen'=>$gen]) </textarea>
+                            <textarea name="codigocontroller" style="display: none"> @include('_template.cd.controller',['gen'=>$gen]) </textarea>
+                            <textarea name="codigomodel" style="display: none"> @include('_template.cd.model',['gen'=>$gen]) </textarea>
+                            <textarea name="codigoindex" style="display: none"> @include('_template.cd.index',['gen'=>$gen]) </textarea>
+                            <textarea name="codigoedit" style="display: none"> @include('_template.cd.edit',['gen'=>$gen]) </textarea>
+                            <textarea name="codigofake" style="display: none"> @include('_template.cd.fake',['gen'=>$gen]) </textarea>
+                            <textarea name="codigorequeststore" style="display: none"> @include('_template.cd.store',['gen'=>$gen]) </textarea>
+                            <textarea name="codigorequestupdate" style="display: none"> @include('_template.cd.update',['gen'=>$gen]) </textarea>
+                            <textarea name="codigomigration" style="display: none"> @include('_template.cd.migration',['gen'=>$gen]) </textarea>
                             <button type="submit"   class="btn btn-danger"> Procesar</button>
                         </form>
                     </div>
@@ -78,7 +78,7 @@
                     <textarea
                         id="Controller|CodeMirror"
                         class="col-md-12"
-                        style="font-size: x-small">@include('_template.controller',['gen'=>$gen])</textarea>
+                        style="font-size: x-small">@include('_template.cd.controller',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"
@@ -89,7 +89,7 @@
                             <input name="capital" type="hidden" value="{{$gen->tabla['ZNOMBREZ']}}">
                             <input name="archivo" type="hidden" value="{{$gen->tabla['ZNOMBREZ']}}Controller.php">
                             <input name="minuscula" type="hidden" value="{{$gen->tabla['ZnombreZ']}}Controller.php">
-                            <textarea name="elcodigo" style="display: none"> @include('_template.controller',['gen'=>$gen]) </textarea>
+                            <textarea name="elcodigo" style="display: none"> @include('_template.cd.controller',['gen'=>$gen]) </textarea>
                             @csrf
                             @method('POST')
                             <button type="button" disabled class="btn "> Crear archivo</button>
@@ -112,7 +112,7 @@
                         <textarea
                             id="Model|CodeMirror"
                             class="col-md-12"
-                            style="font-size: x-small">@include('_template.model',['gen'=>$gen])</textarea>
+                            style="font-size: x-small">@include('_template.cd.model',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"
@@ -135,7 +135,7 @@
                         <textarea
                             id="Index|CodeMirror"
                             class="col-md-12"
-                            style="font-size: x-small">@include('_template.index',['gen'=>$gen])</textarea>
+                            style="font-size: x-small">@include('_template.cd.index',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"
@@ -159,7 +159,7 @@
                             id="Edit|CodeMirror"
                             class="col-md-12"
                             style="font-size: x-small"
-                        >@include('_template.edit',['gen'=>$gen])</textarea>
+                        >@include('_template.cd.edit',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"
@@ -184,7 +184,7 @@
                             id="Fake|CodeMirror"
                             class="col-md-12"
                             style="font-size: x-small"
-                        >@include('_template.fake',['gen'=>$gen])</textarea>
+                        >@include('_template.cd.fake',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"
@@ -208,7 +208,7 @@
                             id="Store|CodeMirror"
                             class="col-md-12"
                             style="font-size: x-small"
-                        >@include('_template.store',['gen'=>$gen])</textarea>
+                        >@include('_template.cd.store',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"
@@ -231,7 +231,7 @@
                             id="Update|CodeMirror"
                             class="col-md-12"
                             style="font-size: x-small"
-                        >@include('_template.update',['gen'=>$gen])</textarea>
+                        >@include('_template.cd.update',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"
@@ -254,7 +254,7 @@
                             id="Migration|CodeMirror"
                             class="col-md-12"
                             style="font-size: x-small"
-                        >@include('_template.migration',['gen'=>$gen])</textarea>
+                        >@include('_template.cd.migration',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"
@@ -278,7 +278,7 @@
                         id="Enum|CodeMirror"
                         class="col-md-12"
                         style="font-size: x-small"
-                    >@include('_template.enum',['gen'=>$gen])</textarea>
+                    >@include('_template.cd.enum',['gen'=>$gen])</textarea>
                     <button
                         type="button"
                         class="btn btn-success pull-right"

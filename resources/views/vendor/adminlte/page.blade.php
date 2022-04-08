@@ -76,7 +76,23 @@
     Route::current()->getName() == 'modulegen' ||
     Route::current()->getName() == 'user_modulegen' ||
     Route::current()->getName() == 'membership_modulegen' ||
-    Route::current()->getName() == 'companygen'
+    Route::current()->getName() == 'companygen'||
+    Route::current()->getName() == 'installmentgen' ||
+    Route::current()->getName() == 'detailinstallmentgen' ||
+    Route::current()->getName() == 'notegen' ||
+    Route::current()->getName() == 'notedetailgen' ||
+
+    Route::current()->getName() == 'taxgen' ||
+    Route::current()->getName() == 'categorygen' ||
+    Route::current()->getName() == 'measuregen' ||
+    Route::current()->getName() == 'suppliergen' ||
+    Route::current()->getName() == 'clientgen' ||
+    Route::current()->getName() == 'salegen' ||
+    Route::current()->getName() == 'productgen' ||
+    Route::current()->getName() == 'producttaxgen' ||
+    Route::current()->getName() == 'saledetailgen' ||
+    Route::current()->getName() == 'purchasegen' ||
+    Route::current()->getName() == 'movementgen'
 )
         <link href="{{ asset('/codemirror/lib/codemirror.css') }}"       rel="stylesheet">
         <link href="{{ asset('/codemirror/theme/monokai.css') }}"        rel="stylesheet">

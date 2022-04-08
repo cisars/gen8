@@ -20,11 +20,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
     public function definition()
     {
         return [
-@foreach ($gen->tabla['relaciones'] as $dataRel)
-@if('belongsTo' == $dataRel['eloquent'])
-            '{{$dataRel['foreign']}}'  => \App\Models\{{substr($dataRel['related'], 0, -7)}}::inRandomOrder()->first()->{{$dataRel['referencesID']}},
-@endif
-@endforeach
 @foreach ($gen->tabla['columnas'] as $dataCol)
 @if ($dataCol['cardinalidad'] == 'pk' )
 //{{ $dataCol['nombre'] }}
@@ -60,7 +55,7 @@ $coma = ',';
             '{{$dataCol['nombre']}}' => $this->faker->randomElement([{{ $auxcons  }}]),
 @endif
 @if($dataCol['cardinalidad'] == 'fk'  || $dataCol['cardinalidad'] == 'pkfk')
-@php   //  '{{$dataCol['nombre']}}'  => \App\Models\{{$dataCol['FK']}}::inRandomOrder()->first()->id, @endphp
+            '{{$dataCol['nombre']}}'  => \App\Models\{{$dataCol['FK']}}::inRandomOrder()->first()->id,
 @endif
 @if( ($dataCol['tipo'] == 'int' || $dataCol['tipo'] == 'numeric' || $dataCol['tipo'] == 'smallint' || $dataCol['tipo'] == 'tinyint' ) && $dataCol['cardinalidad'] == '')
 @php
@@ -91,9 +86,6 @@ $finaux = $finaux.'9';
 @endif
 @if ( ($dataCol['tipo'] == 'varchar' || $dataCol['tipo'] == 'text' || $dataCol['tipo'] == 'char') && $dataCol['cardinalidad'] == '')
             '{{$dataCol['nombre']}}' => $this->faker->text({{ $dataCol['longitud']}}),
-@endif
-@if( ($dataCol['tipo'] == 'decimal' ))
-            '{{$dataCol['nombre']}}' =>  ($this->faker->numberBetween(1 ,50 ))/100,
 @endif
 @if ($dataCol['tipo'] == 'date'  && $dataCol['cardinalidad'] == '')
             '{{$dataCol['nombre']}}' => $this->faker->dateTimeBetween('-50 years', '-20 years' ),

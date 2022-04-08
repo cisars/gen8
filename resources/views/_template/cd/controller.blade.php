@@ -1,11 +1,16 @@
 {{'<?php'}}
 {{--CONFIGURACION--}}
 @php
-    $NOMBRES  = $gen->tabla['ZNOMBRESZ'] ;
-    $NOMBRE   = $gen->tabla['ZNOMBREZ'] ;
-    $nombres  = $gen->tabla['ZnombresZ'] ;
-    $nombre   = $gen->tabla['ZnombreZ'] ;
-// GENISA Begin
+
+     $_head   =  $gen->tabla['ZcontrollerHeadZ'] ;
+     $_detail =  $gen->tabla['ZcontrollerDetailZ'] ;
+
+
+     $NOMBRES  = $gen->tabla['ZNOMBRESZ'] ;
+     $NOMBRE   = $gen->tabla['ZNOMBREZ'] ;
+     $nombres  = $gen->tabla['ZnombresZ'] ;
+     $nombre   = $gen->tabla['ZnombreZ'] ;
+ // GENISA Begin
 @endphp
 namespace App\Http\Controllers;
 

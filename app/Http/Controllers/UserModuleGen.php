@@ -23,6 +23,8 @@ class UserModuleGen extends Controller
                             'User','users','user','descripcion',''),
                         $genisa->parametros('module_id',     'Modulo',            'int',  '',   'notnull','fk','',
                             'Module','modules','module','descripcion',''),
+                        $genisa->parametros('membership_id',     'Membresia',            'int',  '',   'notnull','fk','',
+                            'Membership','memberships','membership','descripcion',''),
 
                     ],
                 'relaciones'  =>
@@ -31,6 +33,8 @@ class UserModuleGen extends Controller
                             'user', 'belongsTo', 'User::class', 'user_id','', ''),
                         $genisa->foreign('module_id','id','modules','CASCADE','CASCADE',
                             'module', 'belongsTo', 'Module::class', 'module_id','', ''),
+                        $genisa->foreign('membership_id','id','memberships','CASCADE','CASCADE',
+                            'membership', 'belongsTo', 'Membership::class', 'membership_id','', ''),
 
 
                     ],

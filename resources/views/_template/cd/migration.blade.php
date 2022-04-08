@@ -132,13 +132,6 @@ $predeterminado = 'true';
 @if ($dataCol['tipo'] == 'numeric')
             $table->float('{{$dataCol['nombre']}}',{{$dataCol['longitud']}})->nullable();
 @endif
-@if ($dataCol['tipo'] == 'decimal')
-@if ($dataCol['longitud'] == '')
-            $table->decimal('{{$dataCol['nombre']}}',2)->nullable();
-@else
-            $table->decimal('{{$dataCol['nombre']}}',{{$dataCol['longitud']}})->nullable();
-@endif
-@endif
 @if ($dataCol['tipo'] == 'varchar'   )
             $table->string('{{$dataCol['nombre']}}',{{$dataCol['longitud']}})->nullable();
 @endif
@@ -148,14 +141,8 @@ $predeterminado = 'true';
 @if ( $dataCol['tipo'] == 'text' )
             $table->text('{{$dataCol['nombre']}}',{{$dataCol['longitud']}})->nullable();
 @endif
-@if ( $dataCol['tipo'] == 'boolean' || $dataCol['tipo'] == 'bool' )
-            $table->boolean('{{$dataCol['nombre']}}')->default(false)->nullable();
-@endif
 @if ($dataCol['tipo'] == 'date')
             $table->date('{{$dataCol['nombre']}}');
-@endif
-@if ($dataCol['tipo'] == 'timestamp' || $dataCol['tipo'] == 'datetime')
-            $table->timestamp('{{$dataCol['nombre']}}');
 @endif
 @if ($dataCol['tipo'] == 'enum'  )
 @foreach ($gen->tabla['enumCol'] as $dataEnum)
