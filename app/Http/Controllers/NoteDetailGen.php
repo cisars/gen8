@@ -26,7 +26,8 @@ class NoteDetailGen extends Controller
                             'Product','products','product','name',''),
 
                         $genisa->parametros('description',        'Descripcion',        'text',  '100',  'notnull','','','','','','',''),
-                        $genisa->parametros('unit_price',        'Precio Unitario',     'int',   '',  'notnull','','','','','','',''),
+                        $genisa->parametros('price_cost',        'Precio Costo',     'int',   '',  'notnull','','','','','','',''),
+                        $genisa->parametros('price_sale',        'Precio Venta',     'int',   '',  'notnull','','','','','','',''),
                         $genisa->parametros('quantity',          'Cantidad',            'int',   '',  'notnull','','','','','','',''),
                         $genisa->parametros('amount',            'Monto',               'int',   '',  'notnull','','','','','','',''),
                     ],

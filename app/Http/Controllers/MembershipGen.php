@@ -27,14 +27,14 @@ class MembershipGen extends Controller
                         $genisa->parametros('user_id',      'User',                  'int',  '',   'notnull','fk','',
                             'User','users','user','name',''),
 
-                         $genisa->parametros('document_type',    'Tipo de Documeno',  'enum',     '',    'notnull','','','','','','','','documents_types', 'MembershipDocumentType'),
+                        $genisa->parametros('document_type',    'Tipo de Documeno',  'enum',     '',    'notnull','','','','','','','','documents_types', 'MembershipDocumentType'),
                         $genisa->parametros('payment_method',    'Metodo de Pago',   'enum',     '',    'notnull','','','','','','','','payment_methods', 'MembershipPaymentMethod'),
 
-                        $genisa->parametros('description',  'Descripcion',           'text',  '100',   'notnull','','','','','','',''),
+                        $genisa->parametros('document',     'Documento',             'text',  '100',   'null','','','','','','',''),
+                        $genisa->parametros('description',  'Descripcion',           'text',  '100',   'null','','','','','','',''),
                         $genisa->parametros('date_start',   'Fecha de Inicio',       'date',     '',   'null','','','','','','',''),
                         $genisa->parametros('date_end',     'Fecha de Finalizacion', 'date',    '',   'null','','','','','','',''),
                         $genisa->parametros('state',        'Estado',                'enum',     '',   'notnull','','','','','','','','states', 'MembershipState'),
-
                     ],
 
                 'relaciones'  =>
@@ -47,12 +47,9 @@ class MembershipGen extends Controller
                             'membership', 'belongsToMany', 'MembershipModule::class', 'membership_id','module_id', 'MembershipModule'),
                         $genisa->foreign('membership_id','id','users_modules','CASCADE','CASCADE',
                             'membership', 'belongsToMany', 'UserModule::class', 'membership_id','user_id', 'MembershipModule'),
-
-
                     ],
                 'enumCol'  =>
                     [
-
                         $genisa->enumCol('state',           'ACTIVO',        'Activo' ),
                         $genisa->enumCol('state',           'INACTIVO',      'Inactivo' ),
                         $genisa->enumCol('document_type',   'CI',    	     'CI' ),
@@ -62,12 +59,9 @@ class MembershipGen extends Controller
                         $genisa->enumCol('payment_method',  'CREDITO',       'Credito' ),
                         $genisa->enumCol('payment_method',  'EFECTIVO',      'Efectivo' ),
                         $genisa->enumCol('payment_method',  'CHEQUE',        'Cheque' ),
-
-
                     ],
                 'constantes'  =>
                     [
-
                         $genisa->constantes('state',           'ACTIVO',        'a' , 'states',             'Activo', 	    'Activo'),
                         $genisa->constantes('state',           'INACTIVO',      'i' , 'states',             'Inactivo',       'Inactivo'),
                         $genisa->constantes('document_type',   'CI',    	      'C' , 'documents_types',    'CI', 	        'CI'),
@@ -77,9 +71,7 @@ class MembershipGen extends Controller
                         $genisa->constantes('payment_method',  'CREDITO',    	  '2' , 'payment_methods',    'Credito', 		'Credito'),
                         $genisa->constantes('payment_method',  'EFECTIVO',       '3' , 'payment_methods',    'Efectivo', 	'Efectivo'),
                         $genisa->constantes('payment_method',  'CHEQUE',         '4' , 'payment_methods',    'Cheque', 	    'Cheque'),
-
                     ]
-
             ];
         $gen->dat = '001';
         $gen->tabla = $tabla;

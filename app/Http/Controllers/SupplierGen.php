@@ -21,6 +21,9 @@ class SupplierGen extends Controller
                 'columnas'  =>
                     [
                         $genisa->parametros('id',               'hidden',      'int',  '' ,  'notnull', 'pk', 'autoincrement','','','',''),
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
+
                         $genisa->parametros('name',             'Nombre',      'text',  '20',   'notnull','','','','','','',''),
                         $genisa->parametros('description',      'Descripcion',      'text',  '100',   'notnull','','','','','','',''),
                         $genisa->parametros('address',          'Direccion',      'text',  '100',   'notnull','','','','','','',''),
@@ -30,6 +33,8 @@ class SupplierGen extends Controller
                     ],
                 'relaciones'  =>
                     [
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
 
                     ],
                 'enumCol'  =>

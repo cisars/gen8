@@ -21,13 +21,18 @@ class TaxGen extends Controller
                 'columnas'  =>
                     [
                         $genisa->parametros('id',               'hidden',               'int', '' ,  'notnull', 'pk', 'autoincrement','','','',''),
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
+
                         $genisa->parametros('name',             'Nombre',               'text',      '50',   'notnull','','','','','','',''),
-                        $genisa->parametros('rate',             'Porcentaje',           'int',      '',   'notnull','','','','','','',''),
+                        $genisa->parametros('rate',             'Porcentaje',           'decimal',      '',   'notnull','','','','','','',''),
                         $genisa->parametros('active',           'Activo',               'boolean',  '',   'notnull','','','','','','',''),
 
                     ],
                 'relaciones'  =>
                     [
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
 
                     ],
                 'enumCol'  =>

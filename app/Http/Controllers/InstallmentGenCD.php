@@ -13,7 +13,7 @@ class InstallmentGenCD extends Controller
         // TYPE: abm, cd, pivot, poli
         $gen = new stdClass();
         $controllerHead = new InstallmentGen();
-        dd($controllerHead->index('x'));
+        //dd($controllerHead->index('x'));
         $controllerDetail = new DetailInstallmentGen('x');
         $genisa = new MakeTemplateController();
         $tabla      =
@@ -22,6 +22,7 @@ class InstallmentGenCD extends Controller
                 'ZcontrollerHeadZ'   => 'InstallmentGen' ,
                 'ZcontrollerDetailZ'   => 'DetailInstallmentGen' ,
             ];
+        dd($genisa->index($tabla));
         $gen->dat = '001';
         $gen->tabla = $tabla;
         return view('_template.cd.matrix', compact('gen')); // Lista con BelongsTo

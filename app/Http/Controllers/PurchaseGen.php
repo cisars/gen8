@@ -21,6 +21,9 @@ class PurchaseGen extends Controller
                 'columnas'  =>
                     [
                         $genisa->parametros('id',              'hidden',                'int', '' ,  'notnull', 'pk', 'autoincrement','','','',''),
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
+
                         $genisa->parametros('supplier_id',       'Proveedor ID',        'int',      '',   'notnull','fk','',
                             'Supplier','suppliers','supplier',    'name',''),
                         $genisa->parametros('product_id',       'Producto ID',          'int',      '',   'notnull','fk','',
@@ -33,6 +36,8 @@ class PurchaseGen extends Controller
                     ],
                 'relaciones'  =>
                     [
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
                          $genisa->foreign('supplier_id','id','suppliers','CASCADE','CASCADE',
                             'supplier', 'belongsTo', 'Supplier::class', 'supplier_id','', ''),
                         $genisa->foreign('product_id','id','products','CASCADE','CASCADE',

@@ -105,14 +105,14 @@
 @if($dataCol['tipo'] == 'enum')
                                     {{'{'}}{{'{'}}--ENUM {{ $dataCol['visibilidad'] }} | {{$auxFix = $dataCol['nombre']}} | {{$aux = $dataCol['nombre']}} --{{'}'}}{{'}'}}
                                     <div class="form-group col">
-                                        <label for="{{ $auxFix }}" >{{ $dataCol['nombresEnum'] }}</label>
+                                        <label for="{{ $auxFix }}" >{{ $dataCol['visibilidad'] }}</label>
                                         <select
                                             class   ="form-control"
                                             name    ="{{ $auxFix }}"
                                             id      ="{{ $auxFix }}">
                                             {{'@'}}foreach (${{ $dataCol['nombresEnum'] }} as $key => ${{ $auxFix }})
                                             <option value="{{'{'}}{{'{'}}   $key   {{'}'}}{{'}'}}"
-                                                    {{'@'}}if (isset(${{ $gen->tabla['ZnombreZ'] }}->{{ $auxFix }}) == old('{{ $auxFix }}', $key) )
+                                                    {{'@'}}if (isset(${{ $gen->tabla['ZnombreZ'] }}->{{ $auxFix }}->key) == old('{{ $auxFix }}', $key) )
                                                 selected="selected"
                                                 {{'@'}}endif
                                                 >{{'{'}}{{'{'}}  ${{ $auxFix }}   {{'}'}}{{'}'}} </option>
@@ -182,12 +182,10 @@
                                         <div class="form-group col">
                                             {{'{'}}{{'{'}}--INPUT NUMERIC {{ $dataCol['visibilidad'] }} --{{'}'}}{{'}'}}
                                             {{'{'}}!! Form::label('{{ $dataCol['nombre'] }}', '{{ $dataCol['visibilidad'] }}') !!{{'}'}}
-                                            {{'{'}}!! Form::text(
+                                            {{'{'}}!! Form::number(
                                                 '{{ $dataCol['nombre'] }}',
                                                 old('{{ $dataCol['nombre'] }}') ,
                                                 [
-                                                    'maxlength'     => '{{ $dataCol['longitud'] }}',
-                                                    'type'          => 'numeric',
                                                     'class'         => 'form-control',
                                                     'placeholder'   => '{{ $dataCol['visibilidad'] }}'
                                             ]) !!{{'}'}}

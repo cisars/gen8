@@ -329,7 +329,7 @@ return [
             ['icon_color' => 'green', 'can' => 'generador', 'url' => 'membershipgen',       'text' => 'Membershipgen',],
             ['icon_color' => 'green', 'can' => 'generador', 'url' => 'modulegen',           'text' => 'Modulegen',],
             ['icon_color' => 'green', 'can' => 'generador', 'url' => 'user_modulegen',      'text' => 'UserModulegen',],
-            ['icon_color' => 'green', 'can' => 'generador', 'url' => 'membership_modulegen', 'text' => 'MembershipModulegen',],
+            ['icon_color' => 'green', 'can' => 'generador, ', 'url' => 'membership_modulegen', 'text' => 'MembershipModulegen',],
             ['icon_color' => 'green', 'can' => 'generador', 'url' => 'companygen',          'text' => 'Companygen',],
             ['icon_color' => 'green', 'can' => 'generador', 'url' => 'installmentgen',      'text' => 'Installment',],
             ['icon_color' => 'maroon', 'can' => 'generador', 'url' => 'installmentgencd',   'text' => 'InstallmentCD',],

@@ -20,6 +20,9 @@ class NoteGen extends Controller
                 'columnas'  =>
                     [
                         $genisa->parametros('id',               'hidden',               'int', '' ,  'notnull', 'pk', 'autoincrement','','','',''),
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
+
                         $genisa->parametros('invoice_number',     'Factura Numero',     'varchar',  '255',   'notnull','fk','',
                             'Invoices','invoices','invoice','id',''),
                         $genisa->parametros('client_id',       'Cliente',               'int',  '',   'notnull','fk','',
@@ -34,6 +37,8 @@ class NoteGen extends Controller
 
                 'relaciones'  =>
                     [
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
                         $genisa->foreign('invoice_number','invoice_number','invoices','CASCADE','CASCADE',
                             'invoice', 'belongsTo', 'Invoice::class', 'invoice_number','', ''),
                         $genisa->foreign('client_id','id','clients','CASCADE','CASCADE',

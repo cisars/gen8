@@ -21,13 +21,17 @@ class CategoryGen extends Controller
                 'columnas'  =>
                     [
                         $genisa->parametros('id',               'hidden',               'smallint', '' ,   'notnull', 'pk', 'autoincrement','','','',''),
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
+
                         $genisa->parametros('name',             'Nombre',               'text',      '100', 'notnull','','','','','','',''),
                         $genisa->parametros('description',      'Descripcion',          'text',  '100',     'notnull','','','','','','',''),
 
                     ],
                 'relaciones'  =>
                     [
-
+                        $genisa->parametros('company_id',     'Company',      'int',  '',   'notnull','fk','',
+                            'Company','companies','company','name','name'),
 
                     ],
                 'enumCol'  =>

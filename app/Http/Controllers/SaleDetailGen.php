@@ -26,7 +26,8 @@ class SaleDetailGen extends Controller
                         $genisa->parametros('product_id',       'Producto ID',      'int',  '',   'notnull','fk','',
                             'Product','products','product',    'name',''),
 
-                        $genisa->parametros('unit_price', 'Precio Unitario',  'int',      '',   'notnull','','','','','','',''),
+                        $genisa->parametros('price_cost', 'Precio de Costo',  'int',      '',   'notnull','','','','','','',''),
+                        $genisa->parametros('price_sale', 'Precio de Venta',  'int',      '',   'notnull','','','','','','',''),
                         $genisa->parametros('quantity',   'Cantidad',         'int',      '',   'notnull','','','','','','',''),
                         $genisa->parametros('subtotal',   'SubTotal',         'int',      '',   'notnull','','','','','','',''),
                         $genisa->parametros('total',      'Total',            'int',      '',   'notnull','','','','','','',''),
